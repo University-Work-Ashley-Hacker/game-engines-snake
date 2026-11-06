@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cigs82s1qcefg"]
+
+[ext_resource type="PackedScene" uid="uid://u4dr6bvdjwrk" path="res://entities/player/player.tscn" id="1_72s8x"]
+[ext_resource type="PackedScene" uid="uid://votrdro2mnnx" path="res://entities/fruit/apple.tscn" id="2_43f5m"]
+[ext_resource type="Script" uid="uid://bnjmhk20ycmw2" path="res://stages/snake_factory.gd" id="3_7iyax"]
+
+[node name="Main" type="Node2D" unique_id=909898513]
+
+[node name="Environment" type="Node2D" parent="." unique_id=1290788806]
+
+[node name="Camera2D" type="Camera2D" parent="Environment" unique_id=222939323]
+
+[node name="Entities" type="Node2D" parent="." unique_id=1771766271]
+
+[node name="Snake" parent="Entities" unique_id=1304881574 instance=ExtResource("1_72s8x")]
+
+[node name="Apple" parent="Entities" unique_id=1373894964 instance=ExtResource("2_43f5m")]
+position = Vector2(164, -169)
+
+[node name="Management" type="Node2D" parent="." unique_id=933771237]
+
+[node name="SnakeFactory" type="Node2D" parent="Management" unique_id=1209218080]
+script = ExtResource("3_7iyax")

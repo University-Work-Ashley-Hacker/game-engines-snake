@@ -1,0 +1,1 @@
+class_name Tail extends AnimatableBody2D

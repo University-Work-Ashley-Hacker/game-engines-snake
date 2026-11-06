@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bsob5axisqaj5"]
+
+[ext_resource type="Texture2D" uid="uid://csymv46hdn23x" path="res://misc/SteamHappy.png" id="1_jf14a"]
+[ext_resource type="Script" uid="uid://3e5vx2bp5t5g" path="res://entities/player/tail.gd" id="1_y7qa3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7x0ag"]
+radius = 32.0
+
+[node name="Tail" type="AnimatableBody2D" unique_id=99390730]
+script = ExtResource("1_y7qa3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=110495536]
+shape = SubResource("CircleShape2D_7x0ag")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=345121944]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=664935590]
+modulate = Color(0.57700837, 0.5770084, 0.57700837, 1)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("1_jf14a")
+
+[node name="Collision" type="Node2D" parent="." unique_id=530192635]
+
+[node name="Management" type="Node" parent="." unique_id=629950830]

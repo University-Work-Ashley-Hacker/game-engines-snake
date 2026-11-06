@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://votrdro2mnnx"]
+
+[ext_resource type="Script" uid="uid://dx085uaefa557" path="res://entities/fruit/apple.gd" id="1_5jt0g"]
+[ext_resource type="Texture2D" uid="uid://dxcfet3uldy3y" path="res://misc/apple.png" id="1_30h7v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7x0ag"]
+radius = 32.0
+
+[node name="Apple" type="Area2D" unique_id=568245984]
+script = ExtResource("1_5jt0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1381424987]
+shape = SubResource("CircleShape2D_7x0ag")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1820050107]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=409226965]
+scale = Vector2(0.10285714, 0.10285714)
+texture = ExtResource("1_30h7v")
+
+[node name="Collision" type="Node2D" parent="." unique_id=1061092619]
+
+[node name="Management" type="Node" parent="." unique_id=1509719690]

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://u4dr6bvdjwrk"]
+
+[ext_resource type="Script" uid="uid://b4k45hmci07ep" path="res://entities/player/player.gd" id="1_2fort"]
+[ext_resource type="Texture2D" uid="uid://csymv46hdn23x" path="res://misc/SteamHappy.png" id="2_abrql"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7x0ag"]
+radius = 30.0
+
+[node name="Snake" type="CharacterBody2D" unique_id=272108422 node_paths=PackedStringArray("move_timer")]
+script = ExtResource("1_2fort")
+move_timer = NodePath("Management/MoveTimer")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=386462276]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1267336300]
+scale = Vector2(0.32, 0.32000002)
+texture = ExtResource("2_abrql")
+
+[node name="Collision" type="Node2D" parent="." unique_id=1961955737]
+
+[node name="Management" type="Node" parent="." unique_id=1907450263]
+
+[node name="MoveTimer" type="Timer" parent="Management" unique_id=736879820]
+wait_time = 0.25
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=968141208]
+shape = SubResource("CircleShape2D_7x0ag")
