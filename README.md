@@ -13,10 +13,8 @@ There are 5 classes, GameManager, SnakeFactory, Player, Apple, Tail.
 #### GameManager
 Handles collecting apple logic, references everything else. Passes data around where it's needed. Also has a lose() function
 
-
 #### Player
 Handles everything related to moving the player and the tail and collision detection with the tail.
-
 
 #### SnakeFactory
 Handles spawning
@@ -47,9 +45,10 @@ GameManager is a singleton autoload, it interfaces with everything. Interacts wi
 ---
 
 ### Purpose
-Class that handles complicated spawning logic so nothing else has to.
+Class that handles complicated spawning logic so nothing else has to. Instead of the player having to handle complicated spawn logic it happens here and the player calls it. Well actually in this case the GameManager does but who CARES.
 
 ### Implementation
+
 SnakeFactory.gd handles the spawning of apples and tail pieces for the snake
 ---
 # References
