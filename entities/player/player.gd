@@ -9,7 +9,10 @@ enum MOVE_DIRECTION {UP, DOWN, LEFT, RIGHT}
 var currently_moving: MOVE_DIRECTION = MOVE_DIRECTION.RIGHT
 
 var length: int = 0
-var snake_tiles: Dictionary[Vector2i, Node2D]
+var tail_tiles: Array[Tail]
+
+var current_pos: Vector2i = Vector2.ZERO
+var last_pos: Vector2i = Vector2.ZERO
 
 const GRID_SIZE: int = GameManager.GRID_SIZE
 
@@ -28,6 +31,11 @@ var opposite_dir_dict: Dictionary[MOVE_DIRECTION, MOVE_DIRECTION] = {
 
 func _ready() -> void:
 	move_timer.timeout.connect(_on_timer_timout)
+
+func recieve_tail_piece(tail: Tail) -> void:
+	tail_tiles.append(tail)
+	add_child(tail)
+	tail.top_level = true
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left"):
@@ -49,4 +57,21 @@ func _on_timer_timout() -> void:
 
 func _move_snake(dir: MOVE_DIRECTION) -> void:
 	var translate_dir: Vector2i = dir_to_vector_dict[dir]
+	last_pos = current_pos
+	current_pos += translate_dir
+	
+
+	
+	for i in range(tail_tiles.size()-1, -1, -1):
+		if i != 0:
+			tail_tiles[i].grid_pos = tail_tiles[i - 1].grid_pos
+		else:
+			tail_tiles[i].grid_pos = last_pos
+	
 	translate(translate_dir * GRID_SIZE)
+	for i in tail_tiles.size():
+		tail_tiles[i].position = tail_tiles[i].grid_pos * GRID_SIZE
+	
+	for n in tail_tiles:
+		if current_pos == n.grid_pos:
+			GameManager.lose()

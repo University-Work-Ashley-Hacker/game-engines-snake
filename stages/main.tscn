@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://u4dr6bvdjwrk" path="res://entities/player/player.tscn" id="1_72s8x"]
 [ext_resource type="PackedScene" uid="uid://votrdro2mnnx" path="res://entities/fruit/apple.tscn" id="2_43f5m"]
 [ext_resource type="Script" uid="uid://bnjmhk20ycmw2" path="res://stages/snake_factory.gd" id="3_7iyax"]
+[ext_resource type="PackedScene" uid="uid://bsob5axisqaj5" path="res://entities/player/tail.tscn" id="4_0oqm6"]
 
 [node name="Main" type="Node2D" unique_id=909898513]
 
@@ -15,9 +16,27 @@
 [node name="Snake" parent="Entities" unique_id=1304881574 instance=ExtResource("1_72s8x")]
 
 [node name="Apple" parent="Entities" unique_id=1373894964 instance=ExtResource("2_43f5m")]
-position = Vector2(164, -169)
+position = Vector2(192, 192)
+
+[node name="Label" type="Label" parent="Entities" unique_id=329596835]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "YOU FUCKING LOSE"
 
 [node name="Management" type="Node2D" parent="." unique_id=933771237]
 
 [node name="SnakeFactory" type="Node2D" parent="Management" unique_id=1209218080]
 script = ExtResource("3_7iyax")
+tail = ExtResource("4_0oqm6")
+apple = ExtResource("2_43f5m")
